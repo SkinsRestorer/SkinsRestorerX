@@ -28,32 +28,35 @@ import java.util.Map;
 public class CommandReplacements {
     public static final Map<String, CallableValue<String>> permissions = FluentMap.<String, CallableValue<String>>builder()
             .put("skin", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command")
-            .put("sr", () -> "skinsrestorer.admincommand")
-
-            .put("skins", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.gui")
-
             .put("skinSet", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.set")
             .put("skinSetOther", () -> "skinsrestorer.command.set.other")
-
             .put("skinSetUrl", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.set.url")
-
             .put("skinClear", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.clear")
             .put("skinClearOther", () -> "skinsrestorer.command.clear.other")
-
             .put("skinSearch", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.search")
-
             .put("skinUpdate", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.update")
             .put("skinUpdateOther", () -> "skinsrestorer.command.update.other")
 
+            .put("sr", () -> "skinsrestorer.admincommand")
             .put("srReload", () -> "skinsrestorer.admincommand.reload")
             .put("srStatus", () -> "skinsrestorer.admincommand.status")
             .put("srDrop", () -> "skinsrestorer.admincommand.drop")
             .put("srProps", () -> "skinsrestorer.admincommand.props")
             .put("srApplySkin", () -> "skinsrestorer.admincommand.applyskin")
             .put("srCreateCustom", () -> "skinsrestorer.admincommand.createcustom")
+
+            .put("skins", () -> Config.SKIN_WITHOUT_PERM ? "" : "skinsrestorer.command.gui")
+
+            .put("skull", () -> "skinsrestorer.skullcommand")
+            .put("skullGet", () -> "skinsrestorer.skullcommand.get")
+            .put("skullGive", () -> "skinsrestorer.skull.give")
+            .put("skullUpdate", () -> "skinsrestorer.skull.update")
+            .put("skullProps", () -> "skinsrestorer.skull.props")
             .build();
+
     public static final Map<String, CallableValue<Message>> descriptions = FluentMap.<String, CallableValue<Message>>builder()
             .put("%helpHelpCommand", () -> Message.HELP_HELP_COMMAND)
+
             .put("%helpSkinClear", () -> Message.HELP_SKIN_CLEAR)
             .put("%helpSkinClearOther", () -> Message.HELP_SKIN_CLEAR_OTHER)
             .put("%helpSkinSearch", () -> Message.HELP_SKIN_SEARCH)
@@ -69,15 +72,25 @@ public class CommandReplacements {
             .put("%helpSrProps", () -> Message.HELP_SR_PROPS)
             .put("%helpSrApplySkin", () -> Message.HELP_SR_APPLY_SKIN)
             .put("%helpSrCreateCustom", () -> Message.HELP_SR_CREATECUSTOM)
+
+            .put("%helpSkullGet", () -> Message.HELP_SKULL_GET)
+            .put("%helpSkullGive", () -> Message.HELP_SKULL_GIVE)
+            .put("%helpSkullUpdate", () -> Message.HELP_SKULL_UPDATE)
+            .put("%helpSkullProps", () -> Message.HELP_SKULL_PROPS)
             .build();
+
     public static final Map<String, CallableValue<Message>> syntax = FluentMap.<String, CallableValue<Message>>builder()
             .put("%SyntaxDefaultCommand", () -> Message.SYNTAX_DEFAULTCOMMAND)
+
             .put("%SyntaxSkinSet", () -> Message.SYNTAX_SKINSET)
             .put("%SyntaxSkinSetOther", () -> Message.SYNTAX_SKINSET_OTHER)
             .put("%SyntaxSkinUrl", () -> Message.SYNTAX_SKINURL)
             .put("%SyntaxSkinSearch", () -> Message.SYNTAX_SKINSEARCH)
             .put("%SyntaxSkinUpdateOther", () -> Message.SYNTAX_SKINUPDATE_OTHER)
             .put("%SyntaxSkinClearOther", () -> Message.SYNTAX_SKINCLEAR_OTHER)
+
+            .put("%SyntaxSkullGet", () -> Message.SYNTAX_SKULL_GET)
+            .put("%SyntaxSkullGive", () -> Message.SYNTAX_SKULL_GIVE)
             .build();
 
     public static final Map<String, CallableValue<Message>> completions = FluentMap.<String, CallableValue<Message>>builder()

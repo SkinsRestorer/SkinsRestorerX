@@ -58,6 +58,7 @@ import net.skinsrestorer.shared.utils.log.SRLogger;
 import net.skinsrestorer.shared.utils.log.Slf4jLoggerImpl;
 import net.skinsrestorer.velocity.command.GUICommand;
 import net.skinsrestorer.velocity.command.SkinCommand;
+import net.skinsrestorer.velocity.command.SkullCommand;
 import net.skinsrestorer.velocity.command.SrCommand;
 import net.skinsrestorer.velocity.listener.ConnectListener;
 import net.skinsrestorer.velocity.listener.GameProfileRequest;
@@ -170,6 +171,7 @@ public class SkinsRestorer implements ISRProxyPlugin {
         manager.registerCommand(skinCommand);
         manager.registerCommand(new SrCommand(this));
         manager.registerCommand(new GUICommand(this));
+        manager.registerCommand(new SkullCommand(this));
     }
 
     public void checkUpdate(boolean showUpToDate) {

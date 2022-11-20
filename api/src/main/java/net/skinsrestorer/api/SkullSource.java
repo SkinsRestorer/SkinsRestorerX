@@ -17,30 +17,36 @@
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
-package net.skinsrestorer.api.property;
-
+package net.skinsrestorer.api;
 /**
- * Easy way of interacting with properties across multiple platforms.
+ * Data source that can be used for skulls
+ * <p>
+ * {@link #MOJANGPLAYER}
+ * {@link #PLAYER}
+ * {@link #SKIN}
+ * {@link #SKINURL}
+ * {@link #TEXTUREVALUE}
  */
-public interface IProperty {
-    String TEXTURES_NAME = "textures";
-
+public enum SkullSource {
     /**
-     * @return The name of the skin (not skin / texture owner).
+     * The username of a premium (mojang registred) player
      */
-    String getName();
-
+    MOJANGPLAYER,
     /**
-     * @return The b64stringTexture value of the property.
+     * An in game player that can have a custom skin
      */
-    String getValue();
-
+    PLAYER,
     /**
-     * @return The signature of the property which is needed when applying the skin .
+     * The name of a skin in the SkinsRestorer database
      */
-    String getSignature();
+    SKIN,
+    /**
+     * A url to a skin image (png)
+     */
+    SKINURL,
+    /**
+     * Base64 encoded texture value (without signature)
+     */
+    TEXTUREVALUE
 
-    default Object getHandle() {
-        return this;
-    }
 }

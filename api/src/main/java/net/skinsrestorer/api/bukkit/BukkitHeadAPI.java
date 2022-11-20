@@ -27,16 +27,15 @@ import net.skinsrestorer.api.reflection.ReflectionUtil;
 import net.skinsrestorer.api.reflection.exception.FieldNotFoundException;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.UUID;
 
 public class BukkitHeadAPI {
     private BukkitHeadAPI() {
-    }
-
-    public static void setSkull(ItemStack head, IProperty property) {
-        setSkull(head, property.getValue());
     }
 
     @SuppressWarnings("unchecked")
@@ -60,5 +59,16 @@ public class BukkitHeadAPI {
         }
 
         head.setItemMeta(headMeta);
+    }
+
+    @Nullable
+    public static PropertyMap getSkullProperty (ItemStack head) {
+        try {
+            SkullMeta skull = (SkullMeta) head.getItemMeta();
+            GameProfile profile = (GameProfile) skull.getOwnerProfile();
+            return profile.getProperties();
+        } catch (Exception ignored) {
+        }
+        return null;
     }
 }
